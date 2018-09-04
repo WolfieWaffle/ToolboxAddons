@@ -1,0 +1,16 @@
+[
+{
+  "modid": "toolboxaddons",
+  "name": "Toolbox Addons",
+  "description": "More content for Adventurer's Toolbox.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Wolfie_Waffle"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
