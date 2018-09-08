@@ -66,12 +66,22 @@ public class ModRecipesAddon {
 			ModRecipes.haft_map.put(new ItemStack(item, 1, 0), ModMaterialsAddon.HAFT_BAMBOO);
 		}
 
+		// Enchanted Fabric
 		if (Item.REGISTRY.containsKey(new ResourceLocation(enchantedfabric))) {
 			Item item = Item.REGISTRY.getObject(new ResourceLocation(enchantedfabric));
 
+			// Enchanted Fabric
 			ForgeRegistries.RECIPES.register(new ShapelessOreRecipe(null, new ItemStack(ModItemsAddon.enchanted_handle, 1, 0), "stickWood", new ItemStack(item, 1, 0)).setRegistryName(new ResourceLocation(ToolboxAddons.MODID, "enchanted_handle")));
 			ModRecipes.handle_map.put(new ItemStack(ModItemsAddon.enchanted_handle, 1, 0), ModMaterialsAddon.HANDLE_ENCHANTED);
+
+			// Treated Wood Enchanted Fabric
+			ForgeRegistries.RECIPES.register(new ShapelessOreRecipe(null, new ItemStack(ModItemsAddon.treated_fabric_handle, 1, 0), "stickTreatedWood", new ItemStack(item, 1, 0)).setRegistryName(new ResourceLocation(ToolboxAddons.MODID, "treated_fabric_handle")));
+			ModRecipes.handle_map.put(new ItemStack(ModItemsAddon.treated_fabric_handle, 1, 0), ModMaterialsAddon.HANDLE_ENCHANTED);
 		}
+
+		// Treated Wood Leather
+		ForgeRegistries.RECIPES.register(new ShapelessOreRecipe(null, new ItemStack(ModItemsAddon.treated_leather_handle, 1, 0), "stickTreatedWood", "leather").setRegistryName(new ResourceLocation(ToolboxAddons.MODID, "treated_leather_handle")));
+		ModRecipes.handle_map.put(new ItemStack(ModItemsAddon.treated_leather_handle, 1, 0), ModMaterialsAddon.HANDLE_TREATED_LEATHER);
 
 		ModRecipes.adornment_map.put(new ItemStack(Items.REDSTONE, 1, 0), ModMaterialsAddon.ADORNMENT_REDSTONE);
 	}

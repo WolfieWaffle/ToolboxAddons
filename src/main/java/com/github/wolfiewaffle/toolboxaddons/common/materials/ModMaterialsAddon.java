@@ -13,6 +13,7 @@ import api.materials.HeadMaterial;
 import api.materials.Materials;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.Loader;
+import toolbox.Toolbox;
 import toolbox.common.Config;
 
 public class ModMaterialsAddon {
@@ -33,6 +34,11 @@ public class ModMaterialsAddon {
 	public static final HeadMaterial HEAD_AQUARIUM = new HeadMaterial("aquarium", 1, 260, 5.4F, 1.5F, 48, ItemStack.EMPTY, "ingotAquarium", "nuggetAquarium", Lists.<String>newArrayList("aquarium"), ToolboxAddons.MODID);
 	public static final HeadMaterial HEAD_STARSTEEL = new HeadMaterial("starsteel", 3, 800, 11.4F, 2.25F, 38, ItemStack.EMPTY, "ingotStarsteel", "nuggetStarsteel", Lists.<String>newArrayList("starsteel"), ToolboxAddons.MODID);
 	
+//	public static final HeadMaterial HEAD_STEELEAF = new HeadMaterial("steeleaf", 3, 131, 8.0F, 3.0F, 9, ItemStack.EMPTY, "ingotSteeleaf", "nuggetSteeleaf", Lists.<String>newArrayList("steeleaf"), ToolboxAddons.MODID);
+	
+	//l(String name, int harvestLevel, int maxUses, float efficiency, float damage, int enchantability)
+	//EnumHelper.addToolMaterial("STEELEAF", 3, 131, 8.0F, 3, 9);
+	
 //	public static final HandleMaterial HANDLE_IRON = new
 //	HandleMaterial("iron", 1.2F, Toolbox.MODID);
 //	public static final HandleMaterial HANDLE_GOLD = new
@@ -41,6 +47,8 @@ public class ModMaterialsAddon {
 	
 	public static final HandleMaterial HANDLE_BAMBOO = new HandleMaterial("bamboo", 1.3F, 0.95f, 1.0F, ToolboxAddons.MODID);
 	public static final HandleMaterial HANDLE_ENCHANTED = new HandleMaterial("enchanted", 1.125F, 1.0f, 1.75F, ToolboxAddons.MODID);
+	public static final HandleMaterial HANDLE_TREATED_LEATHER = new HandleMaterial("treated_leather", 1.25F, 1.1f, 0.775F, ToolboxAddons.MODID);
+	public static final HandleMaterial HANDLE_TREATED_FABRIC = new HandleMaterial("treated_fabric", 1.125F, 1.1f, 1.65F, ToolboxAddons.MODID);
 //public static final HandleMaterial HANDLE_COBALT = new HandleMaterial("cobalt", 1.19F, 1.7f, 1.05F, ToolboxAddons.MODID);
 //	public static final HandleMaterial HANDLE_ARDITE = new
 //	HandleMaterial("ardite", 1.5F, 1.05f, 0.85F, ToolboxAddons.MODID);
@@ -77,6 +85,8 @@ public class ModMaterialsAddon {
 		headMaterials.add(HEAD_AQUARIUM);
 		headMaterials.add(HEAD_STARSTEEL);
 
+//		headMaterials.add(HEAD_STEELEAF);
+
 		for (HeadMaterial mat : headMaterials) {
 			if (!Config.DISABLED_MATERIALS.contains(mat.getName())) {
 				System.out.println("Registering " + mat.getName());
@@ -107,6 +117,8 @@ public class ModMaterialsAddon {
 //			handleMaterials.add(HANDLE_ARDITE);
 //		if(Loader.isModLoaded("tconstruct"))
 //			handleMaterials.add(HANDLE_MANYULLYN);
+		handleMaterials.add(HANDLE_TREATED_LEATHER);
+		handleMaterials.add(HANDLE_TREATED_FABRIC);
 		
 		if(Loader.isModLoaded("biomesoplenty"))
 			handleMaterials.add(HANDLE_BAMBOO);

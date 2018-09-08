@@ -1,5 +1,7 @@
 #Items
 item.toolboxaddons.enchanted_handle.name=Enchanted Fabric Handle
+item.toolboxaddons.treated_leather_handle.name=Treated Leather Handle
+item.toolboxaddons.treated_fabric_handle.name=Treated Fabric Handle
 
 #Material
 bamboo.name=Bamboo
@@ -17,6 +19,8 @@ invar.name=Invar
 mithril.name=Mithril
 starsteel.name=Star-Steel
 enchanted.name=Enchanted Fabric
+treated_leather.name=Treated Leather
+treated_fabric.name=Treated Fabric
 
 #Guide Book
 guide.mat.bamboo.name=Bamboo
@@ -35,6 +39,8 @@ guide.mat.mithril.name=Mithril
 guide.mat.starsteel.name=Star-Steel
 guide.mat.redstone.name=Redstone
 guide.mat.enchanted.name=Enchanted Fabric
+guide.mat.treated_leather.name=Treated Leather
+guide.mat.treated_fabric.name=Treated Fabric
 
 guide.mat.coldiron.desc=*Tools made with cold-iron will do an extra 1.5 hearts of damage to fiery enemies.
 guide.mat.adamantine.desc=*Tools made with adamantine will do an extra 2 hearts of damage to enemies with a max health higher than 10 hearts.

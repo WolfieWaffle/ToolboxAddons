@@ -22,6 +22,8 @@ public class ModItemsAddon {
 	public static final ItemToolHead katana_blade = null;
 
 	public static final Item enchanted_handle = getItem("enchanted_handle");
+	public static final Item treated_leather_handle = getItem("treated_leather_handle");
+	public static final Item treated_fabric_handle = getItem("treated_fabric_handle");
 	
 //	public static final ItemATASpear spear = null;
 //	public static final ItemATAKatana katana = null;
@@ -29,6 +31,8 @@ public class ModItemsAddon {
 	@SubscribeEvent
 	public static void registerItems(RegistryEvent.Register<Item> event) {
 		event.getRegistry().register(enchanted_handle);
+		event.getRegistry().register(treated_leather_handle);
+		event.getRegistry().register(treated_fabric_handle);
 		
 		if (!Config.DISABLED_TOOLS.contains("spear")) {
 //			event.getRegistry().register(new ItemToolHead("spear_head"));
@@ -56,6 +60,8 @@ public class ModItemsAddon {
 		}*/
 		
 		ModelLoader.setCustomModelResourceLocation(enchanted_handle, 0, new ModelResourceLocation(enchanted_handle.getRegistryName().toString(), "inventory"));
+		ModelLoader.setCustomModelResourceLocation(treated_leather_handle, 0, new ModelResourceLocation(treated_leather_handle.getRegistryName().toString(), "inventory"));
+		ModelLoader.setCustomModelResourceLocation(treated_fabric_handle, 0, new ModelResourceLocation(treated_fabric_handle.getRegistryName().toString(), "inventory"));
 	}
 
 	private static Item getItem(String name) {

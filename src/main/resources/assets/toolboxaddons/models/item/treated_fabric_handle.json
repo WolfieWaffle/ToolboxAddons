@@ -1,0 +1,6 @@
+{
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "toolboxaddons:items/treated_fabric_handle"
+    }
+}
