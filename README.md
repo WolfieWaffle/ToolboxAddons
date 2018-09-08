@@ -12,3 +12,7 @@
 
 * Base Metals
     * All metal tool heads, with respective effects
+
+* Immersive Engineering
+    * Treated Wood + Leather handle
+    * Treated Wood + Enchanted Fabric handle
