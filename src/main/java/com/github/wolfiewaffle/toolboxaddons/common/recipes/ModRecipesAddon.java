@@ -76,7 +76,7 @@ public class ModRecipesAddon {
 
 			// Treated Wood Enchanted Fabric
 			ForgeRegistries.RECIPES.register(new ShapelessOreRecipe(null, new ItemStack(ModItemsAddon.treated_fabric_handle, 1, 0), "stickTreatedWood", new ItemStack(item, 1, 0)).setRegistryName(new ResourceLocation(ToolboxAddons.MODID, "treated_fabric_handle")));
-			ModRecipes.handle_map.put(new ItemStack(ModItemsAddon.treated_fabric_handle, 1, 0), ModMaterialsAddon.HANDLE_ENCHANTED);
+			ModRecipes.handle_map.put(new ItemStack(ModItemsAddon.treated_fabric_handle, 1, 0), ModMaterialsAddon.HANDLE_TREATED_FABRIC);
 		}
 
 		// Treated Wood Leather
