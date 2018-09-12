@@ -9,6 +9,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
+import net.minecraftforge.oredict.OreDictionary;
+import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 import toolbox.common.Config;
 import toolbox.common.recipes.ModRecipes;
@@ -31,6 +33,7 @@ public class ModRecipesAddon {
 //				}
 //			}
 //		}
+		OreDictionary.registerOre("shardDragonBone", ModItemsAddon.dragon_bone_shard);
 
 		initToolRecipes();
 
@@ -54,12 +57,14 @@ public class ModRecipesAddon {
 	public static void initMaterialItems() {
 		String bamboo = "biomesoplenty:bamboo";
 		String enchantedfabric = "thaumcraft:fabric";
+		String dragonbone = "iceandfire:dragonbone";
 
 		// ModRecipes.handle_map.put(new ItemStack(Items.IRON_NUGGET, 1, 0),
 		// ModMaterialsAddon.HANDLE_IRON);
 		// ModRecipes.handle_map.put(new ItemStack(Items.GOLD_NUGGET, 1, 0),
 		// ModMaterialsAddon.HANDLE_GOLD);
 
+		/// Bamboo
 		if (Item.REGISTRY.containsKey(new ResourceLocation(bamboo))) {
 			Item item = Item.REGISTRY.getObject(new ResourceLocation(bamboo));
 			ModRecipes.handle_map.put(new ItemStack(item, 1, 0), ModMaterialsAddon.HANDLE_BAMBOO);
@@ -77,6 +82,39 @@ public class ModRecipesAddon {
 			// Treated Wood Enchanted Fabric
 			ForgeRegistries.RECIPES.register(new ShapelessOreRecipe(null, new ItemStack(ModItemsAddon.treated_fabric_handle, 1, 0), "stickTreatedWood", new ItemStack(item, 1, 0)).setRegistryName(new ResourceLocation(ToolboxAddons.MODID, "treated_fabric_handle")));
 			ModRecipes.handle_map.put(new ItemStack(ModItemsAddon.treated_fabric_handle, 1, 0), ModMaterialsAddon.HANDLE_TREATED_FABRIC);
+		}
+
+		// Dragon Bone
+		if (Item.REGISTRY.containsKey(new ResourceLocation(dragonbone))) {
+			Item item = Item.REGISTRY.getObject(new ResourceLocation(dragonbone));
+			String fire_blood = "iceandfire:fire_dragon_blood";
+			String ice_blood = "iceandfire:ice_dragon_blood";
+			String fire_sword = "iceandfire:dragonbone_sword_fire";
+			String ice_sword = "iceandfire:dragonbone_sword_ice";
+
+			OreDictionary.registerOre("boneDragon", item);
+
+			// Shard
+			ForgeRegistries.RECIPES.register(new ShapelessOreRecipe(null, new ItemStack(ModItemsAddon.dragon_bone_shard, 9, 0), new ItemStack(item, 1, 0)).setRegistryName(new ResourceLocation(ToolboxAddons.MODID, "dragon_bone")));
+			ForgeRegistries.RECIPES.register(new ShapedOreRecipe(null, new ItemStack(item, 1, 0), "AAA", "AAA", "AAA", 'A', "shardDragonBone").setRegistryName(new ResourceLocation(ToolboxAddons.MODID, "dragon_bone_shard")));
+
+			// Dragon Bone
+			ModRecipes.head_map.put(new ItemStack(item, 1, 0), ModMaterialsAddon.HEAD_DRAGONBONE);
+
+			// Swords
+			if (Item.REGISTRY.containsKey(new ResourceLocation(ice_blood)) && 
+					Item.REGISTRY.containsKey(new ResourceLocation(fire_blood)) &&
+					Item.REGISTRY.containsKey(new ResourceLocation(fire_sword)) &&
+					Item.REGISTRY.containsKey(new ResourceLocation(ice_sword))) {
+				Item iceblood = Item.REGISTRY.getObject(new ResourceLocation(ice_blood));
+				Item fireblood = Item.REGISTRY.getObject(new ResourceLocation(fire_blood));
+				Item icesword = Item.REGISTRY.getObject(new ResourceLocation(ice_sword));
+				Item firesword = Item.REGISTRY.getObject(new ResourceLocation(fire_sword));
+				ItemStack swordStack = ModItemsAddon.getDragonSword();
+
+				ForgeRegistries.RECIPES.register(new ShapelessOreRecipe(null, icesword, iceblood, swordStack).setRegistryName(new ResourceLocation("iceandfire", "ice_sword")));
+				ForgeRegistries.RECIPES.register(new ShapelessOreRecipe(null, firesword, fireblood, swordStack).setRegistryName(new ResourceLocation("iceandfire", "fire_sword")));
+			}
 		}
 
 		// Treated Wood Leather

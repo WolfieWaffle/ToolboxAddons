@@ -13,6 +13,7 @@ public class CommonProxy {
 
 	public void preInit(FMLPreInitializationEvent event) {
 
+//		OreDictionary.registerOre("boneDragon", Item.REGISTRY.getObject(new ResourceLocation("iceandfire:dragonbone")));
 		ModMaterialsAddon.init();
 
 		MinecraftForge.EVENT_BUS.register(new HandlerAddon());

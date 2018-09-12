@@ -4,7 +4,6 @@ import com.github.wolfiewaffle.toolboxaddons.ToolboxAddons;
 import com.github.wolfiewaffle.toolboxaddons.common.materials.ModMaterialsAddon;
 
 import api.materials.PartMaterial;
-import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.monster.EntityElderGuardian;
@@ -16,7 +15,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
-import net.minecraftforge.fml.common.eventhandler.Event.Result;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent.ItemCraftedEvent;
 import toolbox.common.items.tools.IBladeTool;

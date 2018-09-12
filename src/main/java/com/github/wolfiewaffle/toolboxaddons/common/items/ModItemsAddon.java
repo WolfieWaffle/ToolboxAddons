@@ -1,9 +1,12 @@
 package com.github.wolfiewaffle.toolboxaddons.common.items;
 
 import com.github.wolfiewaffle.toolboxaddons.ToolboxAddons;
+import com.github.wolfiewaffle.toolboxaddons.common.materials.ModMaterialsAddon;
 
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.event.RegistryEvent;
@@ -12,7 +15,12 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
 import toolbox.Toolbox;
 import toolbox.common.Config;
+import toolbox.common.items.ModItems;
 import toolbox.common.items.parts.ItemToolHead;
+import toolbox.common.items.tools.IBladeTool;
+import toolbox.common.items.tools.ICrossguardTool;
+import toolbox.common.items.tools.IHandleTool;
+import toolbox.common.materials.ModMaterials;
 
 @Mod.EventBusSubscriber(modid = ToolboxAddons.MODID)
 @ObjectHolder("toolboxaddons")
@@ -24,6 +32,7 @@ public class ModItemsAddon {
 	public static final Item enchanted_handle = getItem("enchanted_handle");
 	public static final Item treated_leather_handle = getItem("treated_leather_handle");
 	public static final Item treated_fabric_handle = getItem("treated_fabric_handle");
+	public static final Item dragon_bone_shard = getItem("dragon_bone_shard");
 	
 //	public static final ItemATASpear spear = null;
 //	public static final ItemATAKatana katana = null;
@@ -33,6 +42,7 @@ public class ModItemsAddon {
 		event.getRegistry().register(enchanted_handle);
 		event.getRegistry().register(treated_leather_handle);
 		event.getRegistry().register(treated_fabric_handle);
+		event.getRegistry().register(dragon_bone_shard);
 		
 		if (!Config.DISABLED_TOOLS.contains("spear")) {
 //			event.getRegistry().register(new ItemToolHead("spear_head"));
@@ -62,6 +72,7 @@ public class ModItemsAddon {
 		ModelLoader.setCustomModelResourceLocation(enchanted_handle, 0, new ModelResourceLocation(enchanted_handle.getRegistryName().toString(), "inventory"));
 		ModelLoader.setCustomModelResourceLocation(treated_leather_handle, 0, new ModelResourceLocation(treated_leather_handle.getRegistryName().toString(), "inventory"));
 		ModelLoader.setCustomModelResourceLocation(treated_fabric_handle, 0, new ModelResourceLocation(treated_fabric_handle.getRegistryName().toString(), "inventory"));
+		ModelLoader.setCustomModelResourceLocation(dragon_bone_shard, 0, new ModelResourceLocation(dragon_bone_shard.getRegistryName().toString(), "inventory"));
 	}
 
 	private static Item getItem(String name) {
@@ -70,6 +81,16 @@ public class ModItemsAddon {
 		item.setUnlocalizedName(ToolboxAddons.MODID + "." + name);
 		item.setCreativeTab(Toolbox.partsTab);
 		return item;
+	}
+
+	public static ItemStack getDragonSword() {
+		ItemStack tool = new ItemStack(ModItems.sword);
+		NBTTagCompound tag = new NBTTagCompound();
+		tag.setString(IBladeTool.BLADE_TAG, ModMaterialsAddon.HEAD_DRAGONBONE.getName());
+		tag.setString(IHandleTool.HANDLE_TAG, ModMaterials.HANDLE_WITHERED_BONE.getName());
+		tag.setString(ICrossguardTool.CROSSGUARD_TAG, ModMaterialsAddon.HEAD_DRAGONBONE.getName());
+		tool.setTagCompound(tag);
+		return tool;
 	}
 
 }

@@ -15,7 +15,16 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-@Mod(modid = ToolboxAddons.MODID, name = ToolboxAddons.NAME, version = ToolboxAddons.VERSION, useMetadata = false, dependencies = "required-after:toolbox;after:tconstruct;after:biomesoplenty;after:basemetals")
+@Mod(
+		modid = ToolboxAddons.MODID, 
+		name = ToolboxAddons.NAME, 
+		version = ToolboxAddons.VERSION, 
+		useMetadata = false, 
+		dependencies = "required-after:toolbox;"
+				+ "after:tconstruct;"
+				+ "after:biomesoplenty;"
+				+ "after:basemetals;"
+				+ "after:iceandfire")
 public class ToolboxAddons {
 
 	public static final String MODID = "toolboxaddons";

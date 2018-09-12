@@ -13,7 +13,6 @@ import api.materials.HeadMaterial;
 import api.materials.Materials;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.Loader;
-import toolbox.Toolbox;
 import toolbox.common.Config;
 
 public class ModMaterialsAddon {
@@ -33,7 +32,9 @@ public class ModMaterialsAddon {
 	public static final HeadMaterial HEAD_ADAMANTINE = new HeadMaterial("adamantine", 4, 3200, 13.4F, 2.5F, 0, ItemStack.EMPTY, "ingotAdamantine", "nuggetAdamantine", Lists.<String>newArrayList("adamantine"), ToolboxAddons.MODID);
 	public static final HeadMaterial HEAD_AQUARIUM = new HeadMaterial("aquarium", 1, 260, 5.4F, 1.5F, 48, ItemStack.EMPTY, "ingotAquarium", "nuggetAquarium", Lists.<String>newArrayList("aquarium"), ToolboxAddons.MODID);
 	public static final HeadMaterial HEAD_STARSTEEL = new HeadMaterial("starsteel", 3, 800, 11.4F, 2.25F, 38, ItemStack.EMPTY, "ingotStarsteel", "nuggetStarsteel", Lists.<String>newArrayList("starsteel"), ToolboxAddons.MODID);
-	
+
+	public static final HeadMaterial HEAD_DRAGONBONE = new HeadMaterial("dragonbone", 4, 1660, 10.0F, 4.0F, 22, ItemStack.EMPTY, "boneDragon", "shardDragonBone", Lists.<String>newArrayList("dragonbone"), ToolboxAddons.MODID);
+
 //	public static final HeadMaterial HEAD_STEELEAF = new HeadMaterial("steeleaf", 3, 131, 8.0F, 3.0F, 9, ItemStack.EMPTY, "ingotSteeleaf", "nuggetSteeleaf", Lists.<String>newArrayList("steeleaf"), ToolboxAddons.MODID);
 	
 	//l(String name, int harvestLevel, int maxUses, float efficiency, float damage, int enchantability)
@@ -84,6 +85,8 @@ public class ModMaterialsAddon {
 		headMaterials.add(HEAD_ADAMANTINE);
 		headMaterials.add(HEAD_AQUARIUM);
 		headMaterials.add(HEAD_STARSTEEL);
+
+		headMaterials.add(HEAD_DRAGONBONE);
 
 //		headMaterials.add(HEAD_STEELEAF);
 
