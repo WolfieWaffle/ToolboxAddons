@@ -16,3 +16,6 @@
 * Immersive Engineering
     * Treated Wood + Leather handle
     * Treated Wood + Enchanted Fabric handle
+
+* Ice and Fire
+    * Dragon Bone head material
